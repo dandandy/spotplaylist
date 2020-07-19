@@ -1,6 +1,7 @@
 import argparse
 from songs import get_songs, extract_details
 from matches import matches 
+from playlist import extract_id_from_uri
 import json
 
 def get_args():
@@ -12,7 +13,7 @@ def get_args():
     return parser.parse_args()
 
 def build_url(uri):
-    return "https://open.spotify.com/playlist/" + uri
+    return "https://open.spotify.com/playlist/" + extract_id_from_uri(uri)
 
 def run():
     args = get_args()
